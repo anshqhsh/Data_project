@@ -37,7 +37,7 @@ const TableItem = ({
           })}
         </select>
       </form>
-      <h1>Table</h1>
+
       <Table responsive>
         <thead>
           <tr>
