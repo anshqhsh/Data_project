@@ -6,24 +6,20 @@ const Filter = ({
   mutate,
   setMutate,
   mutateList,
-  setMutateState,
   setIsfilter,
   filterTarget,
   setFilterTarget,
 }) => {
-  console.log({ mutate }, { mutateList }, { setMutateState });
-  setMutate(mutate);
   const target = e => {
-    console.log(e.target.value);
+    setMutate(mutate);
     setFilterTarget(e.target.value);
     setIsfilter(true);
     if (e.target.value === mutate) {
       setIsfilter(false);
     }
-    console.log({ filterTarget });
   };
   return (
-    <>
+    <span>
       <form>
         <select value={filterTarget} onChange={target}>
           <option value={mutate}>{mutate}</option>
@@ -32,7 +28,7 @@ const Filter = ({
           })}
         </select>
       </form>
-    </>
+    </span>
   );
 };
 

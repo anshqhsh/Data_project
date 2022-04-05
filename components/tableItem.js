@@ -1,10 +1,29 @@
 import { useState } from 'react';
 import { Table } from 'react-bootstrap';
+import Filter from './filter';
 
-const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
-  const [dropDown, setDropDown] = useState(false);
+const TableItem = ({
+  perPage,
+  setPerPage,
+  currentTables,
+  gender,
+  race,
+  ethnicity,
+  setMutate,
+  setIsfilter,
+  filterTarget,
+  setFilterTarget,
+}) => {
   const perPagelist = [10, 20, 30, 40, 50, 100];
-
+  const thArr = [
+    'age',
+    'birthDatetime',
+    'ethnicity',
+    'gender',
+    'isDeath',
+    'personID',
+    'race',
+  ];
   const Paging = e => {
     setPerPage(e.target.value);
   };
@@ -23,9 +42,40 @@ const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
         <thead>
           <tr>
             <th>Index</th>
-            {thArr.map((e, i) => {
-              return <th key={i}>{e}</th>;
-            })}
+            <th key="age">age</th>
+            <th key="birthDate">birthDate</th>
+            <th key="ethnicity">
+              <Filter
+                mutate={'ethnicity'}
+                setMutate={setMutate}
+                mutateList={ethnicity}
+                setIsfilter={setIsfilter}
+                filterTarget={filterTarget}
+                setFilterTarget={setFilterTarget}
+              />
+            </th>
+            <th key="gender">
+              <Filter
+                mutate={'gender'}
+                setMutate={setMutate}
+                mutateList={gender}
+                setIsfilter={setIsfilter}
+                filterTarget={filterTarget}
+                setFilterTarget={setFilterTarget}
+              />
+            </th>
+            <th key="isDeath">isDeath</th>
+            <th key="id">Id</th>
+            <th key="race">
+              <Filter
+                mutate={'race'}
+                setMutate={setMutate}
+                mutateList={race}
+                setIsfilter={setIsfilter}
+                filterTarget={filterTarget}
+                setFilterTarget={setFilterTarget}
+              />
+            </th>
           </tr>
         </thead>
         <tbody>

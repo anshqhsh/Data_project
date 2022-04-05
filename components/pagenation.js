@@ -9,7 +9,6 @@ const Pagenation = ({ perPage, totalPage, movePage }) => {
         {pageNum.map(num => (
           <button
             onClick={() => {
-              console.log('click');
               movePage(num);
             }}
           >
