@@ -21,6 +21,7 @@ REACT_APP_BASE_URL = { 제공 받은 API 주소}
 
 ## 프로젝트 실행
 
+- yarn add next
 - yarn start
 
 ## 구현 목표
@@ -57,7 +58,7 @@ REACT_APP_BASE_URL = { 제공 받은 API 주소}
 
 1. 폴더 최상단에 .env파일을 생성후 API 주소를 등록
    REACT_APP_BASE_URL = { 제공 받은 API 주소}
-2. yarn init 을 통해 모듈 설치
+2. yarn add next로 Next 모듈 설치
 3. yarn start
 4. 좌측 상단에 테이블 페이징 기능을 통해 10, 20, 30, 40, 50, 100 개로 테이블을 목록을 볼 수 있습니다.
    하단의 페이지 숫자도 함께 변경 됨
