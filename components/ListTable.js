@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Pagenation from './pagenation';
 import TableItem from './tableItem';
 const ListTable = ({ patientList }) => {
-  console.log(patientList);
   console.log(patientList.patient.list);
   const [thArr, setThArr] = useState([
     'age',
@@ -35,14 +34,16 @@ const ListTable = ({ patientList }) => {
     <>
       <h1>ListTable</h1>
       <TableItem
+        perPage={perPage}
+        setPerPage={setPerPage}
         currentTables={currentTables(patientList.patient.list)}
         thArr={thArr}
       />
-      {/* <Pagenation
-      // perPage={perPage}
-      // totalPage={patientList.length}
-      // currentPage={setCurrentPage}
-      /> */}
+      <Pagenation
+        perPage={perPage}
+        totalPage={patientList.patient.list.length}
+        currentPage={setCurrentPage}
+      />
     </>
   );
 };

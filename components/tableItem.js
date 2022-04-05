@@ -1,19 +1,28 @@
-import { stringifyQuery } from 'next/dist/server/server-route-utils';
+import { useState } from 'react';
 import { Table } from 'react-bootstrap';
 
-const TableItem = ({ currentTables, thArr }) => {
-  console.log(currentTables);
-
-  const TrTd = obj => {
-    console.log(obj);
-    for (let key in obj) {
-      return console.log(<td key={key}>{obj[key]}</td>);
-    }
+const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
+  const [dropDown, setDropDown] = useState(false);
+  const perPagelist = [10, 20, 30, 40, 50, 100];
+  const [paging, setpaging] = useState(50);
+  const showDropDown = () => {
+    if (dropDown) {
+      setDropDown(false);
+    } else setDropDown(true);
   };
-  console.log(thArr);
-  // ['age', 'birthDatetime', 'ethnicity', 'gender', 'isDeath', 'personID', 'race']
+
+  const Paging = e => {
+    setPerPage(e.target.value);
+  };
   return (
     <>
+      <form>
+        <select value={perPage} onChange={Paging}>
+          {perPagelist.map(num => {
+            return <option value={num}>{num}</option>;
+          })}
+        </select>
+      </form>
       <h1>Table</h1>
       <Table responsive>
         <thead>
@@ -26,7 +35,6 @@ const TableItem = ({ currentTables, thArr }) => {
         </thead>
         <tbody>
           {currentTables.map((obj, i) => {
-            console.log(obj['isDeath']);
             return (
               <tr>
                 <td>{i}</td>
