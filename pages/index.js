@@ -9,11 +9,9 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(null);
-  // image 데이터를 받아옴
+  // List 데이터를 받아옴
   const fetchList = async () => {
     try {
-      setError(null);
-      setPatientList(null);
       setLoading(true);
       const list = await fetcher('get', '/api/patient/list?page=3');
       console.log('done');

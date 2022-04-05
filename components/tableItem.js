@@ -14,6 +14,7 @@ const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
   const Paging = e => {
     setPerPage(e.target.value);
   };
+
   return (
     <>
       <form>
@@ -27,7 +28,7 @@ const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
       <Table responsive>
         <thead>
           <tr>
-            <th>#</th>
+            <th>Index</th>
             {thArr.map((e, i) => {
               return <th key={i}>{e}</th>;
             })}
@@ -37,7 +38,7 @@ const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
           {currentTables.map((obj, i) => {
             return (
               <tr>
-                <td>{i}</td>
+                <td>{i + 1}</td>
                 {thArr.map(key => {
                   return <td>{obj[key].toString()}</td>;
                 })}

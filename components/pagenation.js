@@ -1,4 +1,4 @@
-const Pagenation = ({ perPage, totalPage, currentPage }) => {
+const Pagenation = ({ perPage, totalPage, movePage }) => {
   const pageNum = [];
   for (let i = 1; i <= Math.ceil(totalPage / perPage); i++) {
     pageNum.push(i);
@@ -7,15 +7,17 @@ const Pagenation = ({ perPage, totalPage, currentPage }) => {
     <>
       <ul className="pageUl">
         {pageNum.map(num => (
-          <li className="pageLi" key={num}>
-            <span
-              className="listSpan"
-              onClick={() => {
-                currentPage(num);
-              }}
-            ></span>
-            {num}
-          </li>
+          <button
+            onClick={() => {
+              console.log('click');
+              movePage(num);
+            }}
+          >
+            <li className="pageLi" key={num}>
+              <span className="listSpan"></span>
+              {num}
+            </li>
+          </button>
         ))}
       </ul>
     </>
