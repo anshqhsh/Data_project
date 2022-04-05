@@ -4,12 +4,6 @@ import { Table } from 'react-bootstrap';
 const TableItem = ({ perPage, setPerPage, currentTables, thArr }) => {
   const [dropDown, setDropDown] = useState(false);
   const perPagelist = [10, 20, 30, 40, 50, 100];
-  const [paging, setpaging] = useState(50);
-  const showDropDown = () => {
-    if (dropDown) {
-      setDropDown(false);
-    } else setDropDown(true);
-  };
 
   const Paging = e => {
     setPerPage(e.target.value);

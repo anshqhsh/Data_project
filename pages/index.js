@@ -14,7 +14,6 @@ const Home = () => {
     try {
       setLoading(true);
       const list = await fetcher('get', '/api/patient/list?page=3');
-      console.log('done');
       setPatientList(list);
       setLoading(false);
     } catch (e) {
